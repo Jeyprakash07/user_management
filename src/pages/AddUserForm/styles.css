@@ -1,0 +1,49 @@
+.user-details-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.user-details-form > div{
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    height: 8vh;
+    border-bottom: 6px solid #03254c;
+    margin-top: 5vh;
+    border-radius: 25px;
+}
+
+.user-details-form > div > input {
+    height: 90%;
+    width: 80%;
+    border: transparent;
+    font-size: 18px;
+}
+
+.user-details-form > div > input::placeholder {
+    font-size: 18px;
+}
+
+form > div > button {
+    width: 40%;
+    height: 10vh;
+    background-color: #03254c;
+    border-radius: 10px;
+    border: transparent;
+    color: white;
+    font-size: 18px;
+    line-height: 1em;
+    padding: 0px;
+    font-weight: 600;
+}
+
+.button-row {
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+    margin-top: 10vh;
+    margin-left: 30%;
+}

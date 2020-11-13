@@ -1,0 +1,23 @@
+.app {
+  height: 100%;
+  padding: 0px 0px;
+  box-sizing: border-box;
+}
+
+a{
+  color: #fff;
+}
+
+button:focus {
+  outline: none;
+}
+
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+input:focus {
+  outline: none;
+}
