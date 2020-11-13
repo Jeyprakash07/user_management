@@ -35,11 +35,12 @@ const AddUserForm = () => {
     });
 
     const watchUserId = watch("userId");
-    const watchName = watch("name");
+    const watchName = watch("userName");
 
 
     useEffect(() => {
         let name = getValues("userName").replace(/[^A-Za-z ]/g, "");
+        console.log(name);
         var splitted = name.split(" ");
 
         if (
