@@ -59,7 +59,7 @@ const AddUserForm = () => {
                     }
                 }
                 name = splitted.join(" ");
-                setValue("name", name);
+                setValue("userName", name);
             }
         }
     }, [watchName]);
