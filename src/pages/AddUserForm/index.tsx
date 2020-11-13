@@ -68,6 +68,7 @@ const AddUserForm = () => {
         //console.log(formValues);
         dispatch(AddUser(formValues));
         reset();
+        dispatch(getAllUsers());
     };
 
     return (
@@ -137,7 +138,7 @@ const AddUserForm = () => {
                             Submit
                         </button>
                         <button
-                        onClick={() => {dispatch(getAllUsers()); history.goBack();}}
+                        onClick={() => { history.goBack();}}
                         style={{backgroundColor: 'white', border: '1px solid gray', color: 'black'}}>
                             Go Back
                         </button>
