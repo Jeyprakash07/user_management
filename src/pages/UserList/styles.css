@@ -1,16 +1,23 @@
+.user-list-page {
+    margin-top: 5vh;
+}
+
 .user-list-header > h2 {
-    text-align: center;
+    white-space: nowrap;
+    font-size: 38px;
+    margin-left: 15%;
 }
 
 
 table {
     text-align: center;
     margin-left: 5%;
+    margin-top: 3vh;
 }
 
 tbody > tr > td{
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 
@@ -27,12 +34,12 @@ tr:nth-child(even) {background: #CCC}
 tr:nth-child(odd) {background: #FFF}
 
 .add-button {
-    width: 10%;
-    height: 10vh;
+    width: 15%;
+    height: 8vh;
     background-color: #03254c;
     border-radius: 10px;
     margin-top: 5%;
-    margin-left: 45%;
+    margin-left: 40%;
     border: transparent;
     color: white;
     font-size: 18px;
@@ -41,6 +48,24 @@ tr:nth-child(odd) {background: #FFF}
     font-weight: 600;
 }
 
+.search-user {
+    height: 5vh;
+    width: 20%;
+    border-radius: 10px;
+    border: 2.5px solid #03254c;
+    padding-left: 20px;
+    font-size: 18px;
+}
+
+.search-user::placeholder {
+    font-size: 18px;
+}
+
+.search-user::-webkit-search-cancel-button{
+    position:relative;
+    right:50px;    
+    font-size: 24px;
+}
 
 
 

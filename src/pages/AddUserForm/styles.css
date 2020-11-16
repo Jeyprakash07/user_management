@@ -23,6 +23,13 @@
     font-size: 18px;
 }
 
+.user-details-form > div > div > input {
+    height: 90%;
+    width: 80% !important;
+    border: transparent;
+    font-size: 18px;
+}
+
 .user-details-form > div > input::placeholder {
     font-size: 18px;
 }
@@ -43,7 +50,7 @@ form > div > button {
 .button-row {
     display: flex;
     width: 40%;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin-top: 10vh;
     margin-left: 30%;
 }

@@ -5,25 +5,33 @@ const API = axios.create({
 });
 
 
-export function getAllUsers() {
+export function getAllUsersApi() {
     return API({
         method: "post",
         url: "/get/allusers"
     });
 }
 
-export function getUser(userIdDetails) {
+export function getUserApi(userName) {
     return API({
         method: "post",
-        url: "/get/allusers"
+        url: "/get/user",
+        data: userName
     });
 }
 
 
-export function addUser(details) {
+export function addUserApi(details) {
     console.log(details);
     return API({
         method: "get",
         url: "/add/user/" + details.userId + "/" + details.userName + "/" + details.mobileNumber + "/" + details.emailAddress,
+    });
+}
+
+export function deleteUserApi(id) {
+    return API({
+        method: "get",
+        url: "/delete/user/" + id
     });
 }

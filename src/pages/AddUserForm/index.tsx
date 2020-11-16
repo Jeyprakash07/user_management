@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
-import { useHistory } from "react-router";
+import { useHistory, useLocation } from "react-router";
 import { useDispatch } from "react-redux";
 import { AddUser, getAllUsers } from "../../redux/actions"
 import "./styles.css";
@@ -14,6 +14,7 @@ interface UserForm {
 
 const AddUserForm = () => {
     const history = useHistory();
+    const location: any = useLocation();
     const dispatch = useDispatch();
     const {
         handleSubmit,
@@ -34,9 +35,17 @@ const AddUserForm = () => {
         }
     });
 
+    useEffect(() => {
+        if (location.state.type === "edit") {
+            console.log(location.state);
+            setValue("userName", location.state.userName);
+            setValue("mobileNumber", location.state.mobileNumber);
+            setValue("emailAddress", location.state.emailAddress);
+        }
+    }, []);
+
     const watchUserId = watch("userId");
     const watchName = watch("userName");
-
 
     useEffect(() => {
         let name = getValues("userName").replace(/[^A-Za-z ]/g, "");
@@ -66,9 +75,13 @@ const AddUserForm = () => {
     }, [watchName]);
 
     const onSubmit = (formValues: any) => {
-        //console.log(formValues);
+        console.log(formValues);
+        if(location.state.type === "edit") formValues["userId"] = location.state.userId;
         dispatch(AddUser(formValues));
-        reset();
+        reset(); 
+        if (location.state.type === "edit") {
+            history.goBack();
+        }
     };
 
     return (
@@ -78,17 +91,18 @@ const AddUserForm = () => {
                     {errors.userId?.type === "required" &&
                         <p className="error-msg">User Id Required</p>
                     }
-                    <div>
-                        <input
-                            type="number"
-                            placeholder="User Id"
-                            maxLength={15}
-                            name="userId"
-                            required={true}
-                            className={"add-user-text-input"}
-                            ref={register}
-                        />
-                    </div>
+                    {location.state.type === "new" ?
+                        <div>
+                            <input
+                                type="number"
+                                placeholder="User Id"
+                                maxLength={15}
+                                name="userId"
+                                required={true}
+                                className={"add-user-text-input"}
+                                ref={register}
+                            />
+                        </div> : null}
                     {errors.userName?.type === "required" &&
                         <p className="error-msg">Name Required</p>
                     }
@@ -135,13 +149,14 @@ const AddUserForm = () => {
                 <div className="button-row">
                     <button
                         type="submit">
-                            Submit
+                        Submit
                         </button>
+                    {location.state.type === "new" &&
                         <button
-                        onClick={() => {dispatch(getAllUsers()); history.goBack();}}
-                        style={{backgroundColor: 'white', border: '1px solid gray', color: 'black'}}>
+                            onClick={() => {history.goBack();}}
+                            style={{ backgroundColor: 'white', border: '1px solid gray', color: 'black' }}>
                             Go Back
-                        </button>
+                        </button>}
                 </div>
             </form>
         </div>
